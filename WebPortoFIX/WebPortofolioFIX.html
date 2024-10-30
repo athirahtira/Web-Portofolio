@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athirah Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000;
+            color: #fff;
+        }
+        p {
+            font-weight: normal;
+        }
+        .logo {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /*------------ Home ------------*/
+        #header {
+            width: 100%;
+            height: 100vh;
+            background-image: url(athirah-bgh.jpg);
+            background-size: cover;
+            background-position: right;
+            z-index: -5;
+        }
+        .container {
+            padding: 10px 10%;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 10px;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            margin-left: auto;
+        }
+        nav ul li {
+            list-style: none;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff04ff;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            transition: width 0.5s;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        .wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            text-align: right;
+            height: calc(100vh - 80px);
+            padding: 0 10%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .wrapper::before {
+            content: '';
+            position: absolute;
+            height: 450px;
+            width: 450px;
+            border-radius: 50%;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(45deg, #0011ff, rgb(143, 199, 255));
+            z-index: -1;
+            animation: moveCircle 6s ease-in-out infinite alternate;
+        }
+        .wrapper::after {
+            content: '';
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            right: 50%;
+            top: -100px;
+            background: linear-gradient(45deg, #0011ff, rgb(143, 199, 255));
+            z-index: -1;
+            animation: moveCircleVertical 8s ease-in-out infinite alternate;
+        }
+        .cols {
+            max-width: 400px;
+            margin-right: 10%;
+            z-index: 2;
+        }
+        .topline {
+            display: block;
+            font-size: 35px;
+            letter-spacing: 5px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .topline::after {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 45px;
+            background-color: #ff04ff;
+            margin-top: 10px;
+            margin-left: auto;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: 900;
+            color: #ffffff;
+        }
+        .multitext {
+            color: #ff04ff;
+            text-transform: capitalize;
+        }
+        .btns {
+            margin-top: 40px;
+        }
+        button {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 400;
+            color: #fff;
+            background-color: #3d535f;
+            padding: 10px 20px;
+            margin: 0 10px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff04ff;
+        }
+        @keyframes moveCircle {
+            0% { transform: translateX(0) translateY(-50%); }
+            100% { transform: translateX(-100px) translateY(-50%); }
+        }
+        @keyframes moveCircleVertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        /*------------ About ------------*/
+        #about {
+            padding: 80px 0;
+            color: #ababab;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .about-col-1 {
+            flex-basis: 35%;
+        }
+        .about-col-1 img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .about-col-2 {
+            flex-basis: 60%;
+        }
+        .sub-title{
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff04ff;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+        .tab-links.active-link::after{
+            width: 50%;
+        }
+
+        /*------------ Skills ------------*/
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: left;
+            align-items: left;
+        }
+        .skills-list i {
+            font-size: 30px;
+            margin-left: 5px;
+            color: #ffffff;
+        }
+        .tab-contents{
+            display: none;
+        }
+        .tab-contents ul li{
+            list-style: none;
+            margin: 10px 0;
+        }
+        .tab-contents ul li span{
+            color: rgb(90, 144, 245);
+            font-size: 14px;
+        }
+        .tab-contents.active-tab{
+            display: block;
+        }
+
+        /*------------ Services ------------*/
+        #services{
+            padding: 30px 0;
+        }
+        .services-list{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+        .services-list div{
+            background: #3d535f;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-radius: 10px;
+            border-right: 10px;
+        }
+        .services-list div i{
+            font-size: 50px;
+            margin-bottom: 30px;
+            transition: background 0.5s, transform 0.5s;
+        }
+        .services-list div h2{
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .services-list div a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .services-list div:hover{
+            background: #0091ff;
+            transform: translateY(-10px);
+        }
+
+        /*------------ Feedback ------------*/
+        #feedback {
+            background-color: #6b98e7;
+            color: #fff;
+            padding: 50px;
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #4c48a2;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .contact-container h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /*------------ Contact ------------*/
+        #contact {
+            color: #fff;
+            padding: 50px 0;
+            margin-bottom: 10px;
+        }
+        .contact-title {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 2em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #0091ff;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .submit-btn {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #fff;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /*------------ Footer ------------*/
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #141578;
+            color: white;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <!--------------- Navigasi ------------>
+                <div class="logo">AthirahWeb</div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!--------------- Home ------------>
+            <div class="wrapper" id="home">
+                <div class="cols">
+                    <span class="topline">Hello, I'm Athirah</span>
+                    <h1>I'm a <span class="multitext">Coder</span></h1>
+                    <div class="btns">
+                        <button>Download CV</button>
+                        <button>Hire Me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typingeffect = new Typed(".multitext", {
+            strings: ["Coder", "Front End Developer", "IT Finance", "Web Design"],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1500
+        });
+    </script>
+
+    <!--------------- About ------------>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="athirah1.jpg" alt="Profile Image">
+                </div>
+                <div class="about-col-2" id="about">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>
+                        I am a computer <b>science student</b> with a strong passion for data analysis and processing.
+                        I enjoy solving complex problems by transforming raw data into meaningful insights that can drive better decision-making.
+                        With a solid foundation in programming languages like Python, C++, and web development (HTML & CSS), 
+                        I strive to combine technical expertise with a keen interest in finance to innovate at the intersection of technology and financial data.
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul class="skills-list">
+                            <li><i class="fab fa-python"></i></li>
+                            <li><i class="fab fa-html5"></i></li>
+                            <li><i class="fab fa-css3-alt"></i></li>
+                            <li><i class="fas fa-code"></i></li>
+                            <li><i class="fas fa-chart-line"></i></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2024</span><br>PENGMAS using Python</li>
+                            <li><span>2024</span><br>Treasure 1 CITE UP 2024</li>
+                            <li><span>2024</span><br>Create Application Buildmate </li>
+                            <li><span>2024</span><br>Head Division Logistics MIF 2024</li>
+                            <li><span>2022</span><br>Treasure 2 CITE UP 2023</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022</span><br>Pertamina University</li>
+                            <li><span>2019</span><br>SMAN 15 Batam</li>
+                            <li><span>2016</span><br>SMP YIMI FDS Gresik</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function opentab(tabname) {
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <!--------------- Services ------------>
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                   <h2>Front End Developer</h2>
+                    <p>Front-end developers focus on creating the visual 
+                        aspects of a website or web application that users 
+                        interact with directly.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h2>IT Finance</h2>
+                     <p>An IT Finance professional bridges the gap between 
+                        technology and finance, focusing on data-driven decisions 
+                        to optimize financial performance within an organization.</p>
+                     <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>Web Design</h2>
+                     <p>Web designers are responsible for creating the visual layout and aesthetic 
+                        of a website, focusing on usability, user experience (UX), and branding.</p>
+                     <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- Feedback ------------>
+    <section id="feedback" class="contact-container">
+        <h1 class="sub-title">Feedback</h1>
+        <form action="#" method="POST">
+            <label for="first-name">Name</label>
+            <input type="text" id="first-name" name="first-name" placeholder="First" required>
+            <input type="text" id="last-name" name="last-name" placeholder="Last" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <label for="message">Comment or Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </section>
+
+    <!--------------- Contact ------------>
+    <section id="contact">
+        <div class="contact-title">Contact</div>
+        <div class="social-links">
+            <a href="https://instagram.com/athirahtira_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/athirahtira_" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://discord.com/users/athirahtira" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="mailto:athirahnaima@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <!--------------- Footer ------------>
+    <footer>
+        <p>&copy; 2024 AthirahWeb. All rights reserved.</p>
+    </footer>
+</body>
+</html>
