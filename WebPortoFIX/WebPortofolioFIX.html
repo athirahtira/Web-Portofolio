@@ -296,6 +296,66 @@
             transform: translateY(-10px);
         }
 
+        /*------------ Portofolio ------------*/
+        #portofolio {
+            padding: 10px;
+            margin-bottom: 80px;
+        }
+        .porto-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 30px;
+            margin-top: 30px;
+        }
+        .porto {
+            position: relative;
+            background: #3d535f;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .porto img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .portolaye{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), #0091ff);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            opacity: 3;
+            transition: opacity 0.3s;
+        }
+        .porto h2 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .porto p {
+            font-size: 14px;
+            color: #ababab;
+        }
+        .porto:hover {
+            background: #ff04ff;
+            transform: translateY(-10px);
+            opacity: 10;
+        }
+
         /*------------ Feedback ------------*/
         #feedback {
             background-color: #6b98e7;
@@ -313,6 +373,16 @@
         .contact-container h1 {
             margin-bottom: 20px;
             text-align: center;
+        }
+        .error {
+            color: red;
+            font-size: 0.85em;
+            margin-top: 0.25em;
+            display: block;
+        }
+        
+        .error-input {
+            border-color: red;
         }
 
         /*------------ Contact ------------*/
@@ -385,6 +455,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#portofolio">Portofolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -445,6 +516,7 @@
                     </div>
                     <div class="tab-contents" id="experience">
                         <ul>
+                            <li><span>2024</span><br>UI/UX BuildMate (on progres)</li>
                             <li><span>2024</span><br>PENGMAS using Python</li>
                             <li><span>2024</span><br>Treasure 1 CITE UP 2024</li>
                             <li><span>2024</span><br>Create Application Buildmate </li>
@@ -512,22 +584,72 @@
         </div>
     </div>
 
+    <!--------------- Portofolio ------------>
+    <section id="portofolio">
+        <div class="container">
+            <h1 class="sub-title">My Portofolio</h1>
+            <div class="porto-list">
+                <div class="porto">
+                    <img src="work1.png">
+                    <div class="portolaye">
+                        <h2>App Design</h2>
+                        <p>This project involves creating a responsive application.</p>
+                    </div>
+                </div>
+                <div class="porto">
+                    <img src="work2.jpg">
+                    <div class="portolaye">
+                        <h2>Analysis Data</h2>
+                        <p>A data driven of poverty in Indonesia.</p>
+                    </div>
+                </div>
+                <div class="porto">
+                    <img src="work3.jpg">
+                    <div class="portolaye">
+                        <h2>A Coffe Project</h2>
+                        <p>This project built with C++</p>
+                    </div>
+                </div>
+                <div class="porto">
+                    <img src="work5.jpg">
+                    <div class="portolaye">
+                        <h2>Data with Python</h2>
+                        <p>A data-driven built with Python.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--------------- Feedback ------------>
     <section id="feedback" class="contact-container">
         <h1 class="sub-title">Feedback</h1>
-        <form action="#" method="POST">
+        <form id="feedbackForm">
             <label for="first-name">Name</label>
-            <input type="text" id="first-name" name="first-name" placeholder="First" required>
-            <input type="text" id="last-name" name="last-name" placeholder="Last" required>
+            <div class="form-row">
+                <input type="text" id="first-name" name="first-name" placeholder="First" required>
+                <input type="text" id="last-name" name="last-name" placeholder="Last" required>
+            </div>
+            <span class="error" id="first-name-error"></span>
+            <span class="error" id="last-name-error"></span>
+            
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Your email" required>
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <span class="error" id="email-error"></span>
+    
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="Your Phone" required>
+            <span class="error" id="phone-error"></span>
+            
             <label for="message">Comment or Message</label>
             <textarea id="message" name="message" rows="4" placeholder="Your message..." required></textarea>
-            <button type="submit" class="submit-btn">Submit</button>
+            <span class="error" id="message-error"></span>
+            
+            <button type="submit" class="submit-btn" onclick="validateForm(event)">Submit</button>
         </form>
     </section>
+
+    <script src="WebPortofolioFIX.js"></script>
 
     <!--------------- Contact ------------>
     <section id="contact">
